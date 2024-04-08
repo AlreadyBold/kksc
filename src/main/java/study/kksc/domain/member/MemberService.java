@@ -11,8 +11,8 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public void join() {
-        return;
+    public void join(Member member) {
+        memberRepository.save(member);
     }
 
     public void signOut() {
@@ -25,5 +25,9 @@ public class MemberService {
 
     public void updateInfo() {
         return;
+    }
+
+    public Member getMember(Long id) {
+        return memberRepository.findById(id).get();
     }
 }

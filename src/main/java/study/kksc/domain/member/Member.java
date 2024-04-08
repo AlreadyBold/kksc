@@ -1,10 +1,16 @@
 package study.kksc.domain.member;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,21 +31,9 @@ public class Member {
 
     private LocalDateTime createdAt;
 
-    public Member() {
-    }
-
-    public Member(Long id, String student_id, String email, String password, String name,
-                  Long grade, Long age, String gender, String addr, String phoneNum, LocalDateTime createdAt) {
+    public Member(Long id, String email, String password) {
         this.id = id;
-        this.student_id = student_id;
         this.email = email;
         this.password = password;
-        this.name = name;
-        this.grade = grade;
-        this.age = age;
-        this.gender = gender;
-        this.addr = addr;
-        this.phoneNum = phoneNum;
-        this.createdAt = createdAt;
     }
 }
